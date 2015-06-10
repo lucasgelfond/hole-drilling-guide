@@ -6,7 +6,7 @@ And so I designed a parametric piece in OpenSCAD that allows you to essentially 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Do as you please, and if you want to do things outside of the license restrictions, feel free to contact me and I might make an exception.
 
-I still have to add files but first I have to deal with this new computer and test this print. Files will be up soon.
+I just added the files. I have yet to do any printing, but I will update this README when I have.
 
 Enjoy yourself. 
 
