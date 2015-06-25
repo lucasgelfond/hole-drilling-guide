@@ -8,17 +8,17 @@ holeSize1 = 3.5;
 holeSize2 = 3.5;
 
 //The X dimension of the first mounting pattern (mm, ie 45x45 mm).
-pattern1X = 25;
+pattern1X = 45;
 //The Y dimension of the first mounting pattern (mm, ie 45x45 mm).
-pattern1Y = 25;
+pattern1Y = 45;
 
 //The X dimension of the second mounting pattern (mm, ie 45x45 mm).
 pattern2X = 40;
 //The Y dimension of the second mounting pattern (mm, ie 45x45 mm).
-pattern2Y = 40;
+pattern2Y = 25;
 
 //The size of the plate that everything is on (mm).
-plateSize = 60;
+plateSize =55;
 
 //The thickness of the plate (mm).
 plateThick = 3;
@@ -89,7 +89,7 @@ module plate() {
         cube([plateSize, plateSize, plateThick],center=true);
         pattern1();
         pattern2();
-        x();
+        %x();
     }
 }
 
