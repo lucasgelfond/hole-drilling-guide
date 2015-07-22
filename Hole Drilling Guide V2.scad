@@ -32,41 +32,13 @@ xLong = 10;
 //The amount of detail for all circular/cylindrical parts.
 sfn=100;
 
-module hole1() {
-    cylinder(r=holeSize1/2, h=plateThick*2, center=true, $fn=sfn);
+module hole(holeSize) {
+    cylinder(r=holeSize/2, h=plateThick*2, center=true, $fn=sfn);
 }
 
-module hole2() {
-    cylinder(r=holeSize2/2, h=plateThick*2, center=true, $fn=sfn);
-}
 
-module pattern1() {
-    translate([pattern1X/2,pattern1Y/2,0]) {
-         hole1();
-    }
-    translate([pattern1X/-2,pattern1Y/2,0]) {
-         hole1();
-    }
-    translate([pattern1X/2,pattern1Y/-2,0]) {
-         hole1();
-    }
-   translate([pattern1X/-2,pattern1Y/-2,0]) {
-         hole1();
-    }
-}
-module pattern2() {
-    translate([pattern2X/2,pattern2Y/2,0]) {
-         hole2();
-    }
-    translate([pattern2X/-2,pattern2Y/2,0]) {
-         hole2();
-    }
-    translate([pattern2X/2,pattern2Y/-2,0]) {
-         hole2();
-    }
-   translate([pattern2X/-2,pattern2Y/-2,0]) {
-         hole2();
-    }
+module pattern(patternX, patternY, holeSize) {
+    for(i = [1, -1], n = [1, -1]) translate([patternX/2*i,patternY/2*n,0]) hole(holeSize);
 }
 
 
@@ -76,20 +48,15 @@ module xArm() {
     cube([xLong, xWide, plateThick*2], center=true);
 }
 module x() {
-    rotate([0,0,45]) {
-        xArm();
-    }
-    rotate([0,0,-45]) {
-        xArm();
-    }
+    for(i = [45, -45]) rotate([0,0,i]) xArm();
 }
 
 module plate() {
     difference() {
         cube([plateSize, plateSize, plateThick],center=true);
-        pattern1();
-        pattern2();
-        %x();
+        pattern(pattern1X, pattern1Y, holeSize1);
+        pattern(pattern2X, pattern2Y, holeSize2);
+        x();
     }
 }
 
